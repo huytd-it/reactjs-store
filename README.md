@@ -1,70 +1,153 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# KingShop 
+Food Order App is a modern food ordering website built with React and Vite, allowing users to browse menus, add items to the cart, and place orders seamlessly.
 
-## Available Scripts
+## 📜 Features
 
-In the project directory, you can run:
+- 🛍️ Browse food categories and items  
+- 🛒 Add items to the cart and adjust quantities  
+- 💳 Secure checkout process  
+- 🔍 Search and filter menu items  
+- 📱 Fully responsive design  
 
-### `npm start`
+## 🚀 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[🔗 View Demo](https://huytd-it.github.io/my-first-store/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![alt text](public/image.png)
+## 📦 Installation
 
-### `npm test`
+```sh
+git clone https://github.com/huytd-it/my-first-store.git
+cd your-repo-name
+npm install
+npm run dev
+```
+## Folder Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```txt
+reactjs-store
+├─ index.html
+├─ jsconfig.json
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+│  ├─ logo192.png
+│  ├─ logo512.png
+│  ├─ manifest.json
+│  └─ robots.txt
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ App.test.jsx
+│  ├─ assets
+│  │  ├─ crown.svg
+│  │  └─ shopping-bag.svg
+│  ├─ components
+│  │  ├─ card
+│  │  │  ├─ card.component.jsx
+│  │  │  └─ card.styles.css
+│  │  ├─ card-list
+│  │  │  ├─ card-list.component.jsx
+│  │  │  └─ card-list.styles.css
+│  │  ├─ cart-dropdown
+│  │  │  ├─ cart-dropdown.component.jsx
+│  │  │  └─ cart-dropdown.style.scss
+│  │  ├─ cart-icon
+│  │  │  ├─ cart-icon.component.jsx
+│  │  │  └─ cart-icon.style.scss
+│  │  ├─ cart-item
+│  │  │  ├─ cart-item.component.jsx
+│  │  │  └─ cart-item.styles.scss
+│  │  ├─ checkout-item
+│  │  │  ├─ checkout-item.component.jsx
+│  │  │  └─ checkout-item.styles.scss
+│  │  ├─ collection-item
+│  │  │  ├─ collection-item.component.jsx
+│  │  │  └─ collection-item.style.scss
+│  │  ├─ collection-overview
+│  │  │  ├─ collection-overview.component.jsx
+│  │  │  └─ collection-overview.styles.scss
+│  │  ├─ collection-preview
+│  │  │  ├─ collection-preview.component.jsx
+│  │  │  └─ collection-preview.style.scss
+│  │  ├─ custom-button
+│  │  │  ├─ custom-button.component.jsx
+│  │  │  └─ custom-button.style.scss
+│  │  ├─ directory
+│  │  │  ├─ directory.component.jsx
+│  │  │  └─ directory.style.scss
+│  │  ├─ form-input
+│  │  │  ├─ form-input.component.jsx
+│  │  │  └─ form-input.style.scss
+│  │  ├─ header
+│  │  │  ├─ header.component.jsx
+│  │  │  └─ header.style.scss
+│  │  ├─ menu-item
+│  │  │  ├─ menu-item.component.jsx
+│  │  │  └─ menu-item.style.scss
+│  │  ├─ search-box
+│  │  │  ├─ search-box.component.jsx
+│  │  │  └─ search-box.styles.css
+│  │  ├─ sign-in
+│  │  │  ├─ sign-in.component.jsx
+│  │  │  └─ sign-in.style.scss
+│  │  └─ sign-up
+│  │     ├─ sign-up.component.jsx
+│  │     └─ sign-up.styles.scss
+│  ├─ firebase
+│  │  └─ firebase.utils.jsx
+│  ├─ index.css
+│  ├─ logo.svg
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ checkout
+│  │  │  ├─ checkout.component.jsx
+│  │  │  └─ checkout.styles.scss
+│  │  ├─ collection
+│  │  │  ├─ collection.component.jsx
+│  │  │  └─ collection.styles.scss
+│  │  ├─ homepage
+│  │  │  ├─ homepage.component.jsx
+│  │  │  └─ homepage.style.scss
+│  │  ├─ shop
+│  │  │  ├─ shop.component.jsx
+│  │  │  └─ shop.style.scss
+│  │  └─ sign-in-and-sign-up
+│  │     ├─ sign-in-and-sign-up.component.jsx
+│  │     └─ sign-in-and-sign-up.style.scss
+│  ├─ redux
+│  │  ├─ cart
+│  │  │  ├─ cart.actions.jsx
+│  │  │  ├─ cart.reducer.jsx
+│  │  │  ├─ cart.selectors.jsx
+│  │  │  ├─ cart.types.jsx
+│  │  │  └─ cart.utils.jsx
+│  │  ├─ directory
+│  │  │  ├─ directory.reducer.jsx
+│  │  │  └─ directory.selectors.jsx
+│  │  ├─ root-recuder.jsx
+│  │  ├─ shop
+│  │  │  ├─ shop.data.jsx
+│  │  │  ├─ shop.reducer.jsx
+│  │  │  └─ shop.selectors.jsx
+│  │  ├─ store.jsx
+│  │  └─ user
+│  │     ├─ user.actions.jsx
+│  │     ├─ user.reducer.jsx
+│  │     ├─ user.selectors.jsx
+│  │     └─ user.types.jsx
+│  ├─ reportWebVitals.jsx
+│  └─ setupTests.jsx
+├─ structure.txt
+└─ vite.config.js
 
-### `npm run build`
+```
+## 🎨 Design Prototype
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Check out the UI/UX design on Figma:  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[🔗 Figma Design](https://www.figma.com/design/cuDRzFIrO9VEAZCG4kKAYF/Food-Delivery-Website-%26-App-Design-UI-Kit-(Community)-(Copy)?node-id=4-2&t=p0q5xmjnjnZNl1aM-0)

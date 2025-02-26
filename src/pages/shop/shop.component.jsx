@@ -1,13 +1,19 @@
 import React from "react";
-import { Route } from "react-router";
-import CollectionsOverView from "../../components/collection-overview/collection-overview.component";
-import CollectionPage from "../collection/collection.component";
+import { Route, Routes, useMatch } from "react-router-dom";
+import CollectionsOverView from "@/components/collection-overview/collection-overview.component";
+import CollectionPage from "@/pages/collection/collection.component";
 
-const ShopPage = ({ match }) => (
-  <div className="shop-page">
-    <Route exact path={`${match.path}`} component={CollectionsOverView} />
-    <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
-  </div>
-);
+const ShopPage = () => {
+  const match = useMatch("/shop/*"); // Lấy match từ hook
+
+  return (
+    <div className="shop-page">
+      <Routes>
+        <Route path="/" element={<CollectionsOverView />} />
+        <Route path=":collectionId" element={<CollectionPage />} />
+      </Routes>
+    </div>
+  );
+};
 
 export default ShopPage;
