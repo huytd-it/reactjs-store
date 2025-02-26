@@ -1,37 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { auth } from "@/firebase/firebase.utils.jsx";
 import CartIcon from "@/components/cart-icon/cart-icon.component.jsx";
 import CartDropdown from "@/components/cart-dropdown/cart-dropdown.component.jsx";
+import { selectCurrentUser } from "@/redux/user/user.selectors.jsx";
+import { selectCartHidden } from "@/redux/cart/cart.selectors.jsx";
 import Logo from "@/assets/crown.svg"; // ✅ Kiểm tra file tồn tại
 
-import "./header.style.scss";
-import { selectCurrentUser } from "../../redux/user/user.selectors.jsx";
-import { selectCartHidden } from "../../redux/cart/cart.selectors.jsx";
-import logger from "redux-logger";
+import "./header.style.scss"; // ✅ Nhớ tạo file CSS kèm theo
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  
-  <div className="header">
-    <Link className="logo-container" to="/">
-     <img src={Logo} />
-    </Link>
-    <div className="options">
-      <Link className="option" to="/shop">SHOP</Link>
-      <Link className="option" to="/contact">CONTACT</Link>
-      {currentUser ? (  <button  className="option" onClick={() => auth.signOut()} tabIndex="0" >SIGN OUT</button>
-      ) : (
-        <Link className="option" to="/sign-in">SIGN IN</Link>
-      )}
-      <CartIcon />
-    </div>
+  return (
+    <header className="header">
+      <div className="container">
+        {/* Logo */}
+        <Link to="/" className="logo">
+          <img src={Logo} alt="Logo" />
+        </Link>
 
-    {!hidden && <CartDropdown />}
-  </div>
-);
+        {/* Nút mở menu (chỉ hiện trên mobile) */}
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
+
+        {/* Menu chính */}
+        <nav className={`nav ${menuOpen ? "open" : ""}`}>
+          <Link to="/shop" onClick={() => setMenuOpen(false)}>SHOP</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>CONTACT</Link>
+          {currentUser ? (
+            <button onClick={() => { auth.signOut(); setMenuOpen(false); }}>SIGN OUT</button>
+          ) : (
+            <Link to="/sign-in" onClick={() => setMenuOpen(false)}>SIGN IN</Link>
+          )}
+          <CartIcon />
+        </nav>
+      </div>
+
+      {/* Hiển thị giỏ hàng nếu cần */}
+      {!hidden && <CartDropdown />}
+    </header>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

@@ -1,11 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -19,6 +14,7 @@ import { auth, createUserProfileDocument } from "@/firebase/firebase.utils.jsx";
 import { setCurrentUser } from "@/redux/user/user.actions.jsx";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "@/redux/user/user.selectors.jsx";
+import CollectionComponent from "./pages/collection/collection.component";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -46,15 +42,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginTop:"3rem"}}>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="/shop/:collectionId" element={<CollectionComponent />} />
+         
           <Route
             path="/sign-in"
-             element={selectCurrentUser ? <Navigate to="/" /> : <SignInAndSignUp />}
+            element={
+              this.props.currentUser ? <Navigate to="/" /> : <SignInAndSignUp />
+            }
           />
         </Routes>
       </div>

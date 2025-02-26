@@ -9,7 +9,7 @@ import {store, persistor } from "./redux/store";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/reactjs-store/'}>
       <PersistGate persistor={persistor}>
         <App />
       </PersistGate>

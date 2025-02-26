@@ -1,19 +1,66 @@
 .collection-page {
   display: flex;
   flex-direction: column;
+  padding: 0 20px; // Thêm padding để tránh sát mép màn hình
 
   .title {
     font-size: 38px;
-    margin: 0 auto 30px;
+    text-align: center;
+    margin-bottom: 30px;
   }
 
   .items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    width: 1000px;
+    margin: 0 auto; // Để căn giữa
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px; // Khoảng cách giữa các item
+    justify-content: center;
 
-    & .collection-item {
-      margin-bottom: 30px;
+    .collection-item {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 1024px) {
+  .collection-page {
+    .title {
+      font-size: 32px;
+    }
+
+    .items {
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection-page {
+    .title {
+      font-size: 28px;
+    }
+
+    .items {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .collection-page {
+    padding: 0 10px;
+
+    .title {
+      font-size: 24px;
+    }
+
+    .items {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
     }
   }
 }

@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     port: 3000, // Cấu hình cổng server, có thể thay đổi nếu cần
   },
+  base: '/reactjs-store/',
   build: {
     outDir: "dist", // Đầu ra mặc định của Vite
   },
