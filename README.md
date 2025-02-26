@@ -1,6 +1,6 @@
 
 # KingShop 
-Food Order App is a modern food ordering website built with React and Vite, allowing users to browse menus, add items to the cart, and place orders seamlessly.
+Faction Shop is a modern food ordering website built with React and Vite, allowing users to browse menus, add items to the cart, and place orders seamlessly.
 
 ## 📜 Features
 
@@ -12,9 +12,9 @@ Food Order App is a modern food ordering website built with React and Vite, allo
 
 ## 🚀 Live Demo
 
-[🔗 View Demo](https://huytd-it.github.io/my-first-store/)
+[🔗 View Demo](https://huytd-it.github.io/reactjs-store/)
 
-![alt text](public/image.png)
+![alt text](/public/image.png)
 ## 📦 Installation
 
 ```sh
